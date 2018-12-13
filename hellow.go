@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"math"
 	"math/cmplx"
+	"strconv"
 )
 
 var (
@@ -111,6 +112,19 @@ func switchDemoGrade(score int) string {
 	}
 	return s
 }
+func forDefind() {
+
+}
+
+//已知二进制转换为x%2
+func forDemoConvertToBin(number int) string {
+	res := ""
+	for ; number > 0; number /= 2 {
+		lsb := number % 2
+		res = strconv.Itoa(lsb) + res
+	}
+	return res
+}
 func main() {
 	fmt.Println("next-func-is-varShorter()")
 	varShorter()
@@ -148,6 +162,10 @@ func main() {
 	fmt.Println(switchDemoGrade(69))
 	fmt.Println(switchDemoGrade(89))
 	fmt.Println(switchDemoGrade(100))
+
+	fmt.Println("\nnext-func-is-forDemoConvertToBin()")
+	fmt.Println(forDemoConvertToBin(100))
+	fmt.Println(forDemoConvertToBin(8))
 
 	fmt.Println("\nnext-func-is-mian()")
 	fmt.Println("Hello word")
