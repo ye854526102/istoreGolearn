@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"math"
 	"math/cmplx"
-	"io/ioutil"
 )
 
 var (
@@ -56,41 +56,60 @@ func triangle() {
 	c = int(math.Sqrt(float64(a*a + b*b)))
 	fmt.Println(c)
 }
-func constDefind()  {
-	const(
-		a,b=3,4
+func constDefind() {
+	const (
+		a, b = 3, 4
 	)
 	var c int
 	c = int(math.Sqrt((a*a + b*b)))
 	fmt.Println(c)
 }
-func eunmsDefind()  {
-	const(
+func eunmsDefind() {
+	const (
 		a = iota
 		_
 		aa
 		bb
 	)
-	fmt.Println(a,aa,bb)
+	fmt.Println(a, aa, bb)
 	//ioto作为种子,来表示 b,kb,mb,gb,tb,pb
-	const(
-		b = 1<<(10*iota)
+	const (
+		b = 1 << (10 * iota)
 		kb
 		mb
 		gb
 		tb
 		pb
 	)
-	fmt.Println(b,kb,mb,gb,tb,pb)
+	fmt.Println(b, kb, mb, gb, tb, pb)
 
 }
-func branchIf(){
-	const filename="test.log"
-	if contents,err :=ioutil.ReadFile(filename);err!=nil{
+func branchIf() {
+	const filename = "test.log"
+	if contents, err := ioutil.ReadFile(filename); err != nil {
 		fmt.Println(err)
-	}else{
-		fmt.Printf("%s",contents)
+	} else {
+		fmt.Printf("%s", contents)
 	}
+}
+func switchDefind() {
+
+}
+func switchDemoGrade(score int) string {
+	s := ""
+	switch {
+	case score == 0 || score > 100:
+		panic(fmt.Sprintf("you score is wrong %d", score))
+	case score < 60:
+		s = "F"
+	case score < 80:
+		s = "C"
+	case score < 90:
+		s = "B"
+	case score < 100:
+		s = "A"
+	}
+	return s
 }
 func main() {
 	fmt.Println("next-func-is-varShorter()")
@@ -117,11 +136,18 @@ func main() {
 	fmt.Println("\nnext-func-is-constDefind()")
 	constDefind()
 
-	fmt.Println("\nnext-func-is-constDefind()")
+	fmt.Println("\nnext-func-is-eunmsDefind()")
 	eunmsDefind()
 
 	fmt.Println("\nnext-func-is-branchIf()")
 	branchIf()
+
+	fmt.Println("\nnext-func-is-switchDemoGrade()")
+	fmt.Println(switchDemoGrade(60))
+	fmt.Println(switchDemoGrade(59))
+	fmt.Println(switchDemoGrade(69))
+	fmt.Println(switchDemoGrade(89))
+	fmt.Println(switchDemoGrade(100))
 
 	fmt.Println("\nnext-func-is-mian()")
 	fmt.Println("Hello word")
