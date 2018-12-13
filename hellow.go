@@ -128,8 +128,20 @@ func forDemoConvertToBin(number int) string {
 	return res
 }
 
-//TODO 转8进制 16进制 32进制?
+//TODO 转8进制
 func forDemoConvertToOCT(number int) string {
+	res := ""
+	return res
+}
+
+//TODO 16进制
+func forDemoConvertToHex(number int) string {
+	res := ""
+	return res
+}
+
+//TODO 32进制?
+func forDemoConvertToMore(number int) string {
 	res := ""
 	return res
 }
