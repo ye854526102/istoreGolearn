@@ -1,10 +1,12 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io/ioutil"
 	"math"
 	"math/cmplx"
+	"os"
 	"strconv"
 )
 
@@ -125,6 +127,22 @@ func forDemoConvertToBin(number int) string {
 	}
 	return res
 }
+
+//TODO 转8进制 16进制 32进制?
+func forDemoConvertToOCT(number int) string {
+	res := ""
+	return res
+}
+func printFileLine(filename string) {
+	file, err := os.Open(filename)
+	if err != nil {
+		panic(fmt.Sprintf("open file %s is wrong", file))
+	}
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		fmt.Println(scanner.Text())
+	}
+}
 func main() {
 	fmt.Println("next-func-is-varShorter()")
 	varShorter()
@@ -166,6 +184,9 @@ func main() {
 	fmt.Println("\nnext-func-is-forDemoConvertToBin()")
 	fmt.Println(forDemoConvertToBin(100))
 	fmt.Println(forDemoConvertToBin(8))
+
+	fmt.Println("\nnext-func-is-printFileLine()")
+	printFileLine("test.log")
 
 	fmt.Println("\nnext-func-is-mian()")
 	fmt.Println("Hello word")
