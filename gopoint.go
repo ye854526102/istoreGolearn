@@ -9,15 +9,22 @@ func main() {
 	fmt.Println(p)
 
 	a, b := 3, 4
-	swapValue(&a, &b)
+	swapValueByPoint(&a, &b)
 	fmt.Println(a)
 	fmt.Println(b)
+	c, d := swapValueBySwap(a, b)
+	fmt.Println(c)
+	fmt.Println(d)
 }
 
 func changeValue(p *int) {
 	*p++
 }
 
-func swapValue(a, b *int) {
+func swapValueByPoint(a, b *int) {
 	*a, *b = *b, *a
+}
+
+func swapValueBySwap(a int, b int) (int, int) {
+	return b, a
 }
