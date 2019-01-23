@@ -34,7 +34,7 @@ func div(a, b int) (q, r int) {
 //可变参数函数
 func sum(number ...int) int {
 	i := 0
-	for k, _ := range number {
+	for k := range number {
 		i += number[k]
 	}
 	for _, v := range number {
@@ -46,6 +46,7 @@ func sum(number ...int) int {
 func pow(a, b int) int {
 	return int(math.Pow(float64(a), float64(b)))
 }
+
 func calc(a, b int, expr string) (int, error) {
 	var result int
 	var err error
@@ -68,7 +69,7 @@ func calc(a, b int, expr string) (int, error) {
 //参数是函数
 func apply(op func(int, int) int, a, b int) int {
 	p := reflect.ValueOf(op).Pointer()
-	opNmae := runtime.FuncForPC(p).Name()
-	fmt.Println(opNmae)
+	opme := runtime.FuncForPC(p).Name()
+	fmt.Println(opme)
 	return op(a, b)
 }
