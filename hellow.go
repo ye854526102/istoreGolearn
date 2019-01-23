@@ -24,8 +24,8 @@ func varZeroValue() {
 }
 
 func varInitialValue() {
-	var a int = 18
-	var s string = "weipeng"
+	var a = 18
+	var s = "weipeng"
 	fmt.Println(a, s)
 }
 func varTypeDeduction() {
@@ -54,7 +54,7 @@ func euler() {
 	fmt.Println(cmplx.Exp(1i*math.Pi) + 1)
 }
 func triangle() {
-	var a, b int = 3, 4
+	var a, b = 3, 4
 	var c int
 	c = int(math.Sqrt(float64(a*a + b*b)))
 	fmt.Println(c)
@@ -64,7 +64,7 @@ func constDefind() {
 		a, b = 3, 4
 	)
 	var c int
-	c = int(math.Sqrt((a*a + b*b)))
+	c = int(math.Sqrt(a*a + b*b))
 	fmt.Println(c)
 }
 func eunmsDefind() {
