@@ -4,26 +4,24 @@ import "fmt"
 
 func main() {
 	result := findLongNoReapeatString("abcdaaabcdef")
+	results := findLongNoReapeatString("我熬我看我我的奇偶奇偶就是ni")
+	resultss := findLongNoReapeatString("小猪佩奇")
 	fmt.Println(result)
+	fmt.Println(results)
+	fmt.Println(resultss)
 }
 
 func findLongNoReapeatString(s string) int {
 	start, maxlength := 0, 0
-	var lastImax int
-	fmt.Printf("最长的字符串未%v\n", []byte(s))
-
-	tmparr := make(map[byte]int)
-	for i, v := range []byte(s) {
-		fmt.Println(i)
+	tmparr := make(map[rune]int)
+	for i, v := range []rune(s) {
 		if lasrtI, ok := tmparr[v]; ok && lasrtI >= start {
 			start = lasrtI + 1
 		}
 		if i-start+1 > maxlength {
 			maxlength = i - start + 1
-			lastImax = i
 		}
 		tmparr[v] = i
 	}
-	fmt.Printf("最长的字符串未%v\n", lastImax)
 	return maxlength
 }
