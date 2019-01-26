@@ -17,9 +17,18 @@ func copySlice() {
 	copy(s_m_c, s)
 	printSlice(s_m_c)
 
-	//删除slice,主要通过append,和[]int...不可定参数传递
+	//slice删除中间,主要通过append,和[]int...不可定参数传递
 	s_m_c_n := append(s_m_c[:6], s_m_c[7:]...)
 	printSlice(s_m_c_n)
+
+	//slic删除头部的数据,头部拿去会是cap减少,因为slice不可向前扩展
+	s_m_c_h := s[1:]
+	printSlice(s_m_c_h)
+
+	//slic删除头部的数据
+	s_m_c_t := s[:len(s)-1]
+	printSlice(s_m_c_t)
+
 }
 
 func createSlice() {
